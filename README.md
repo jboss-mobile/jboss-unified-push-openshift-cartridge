@@ -26,7 +26,7 @@ rhc app create -g medium --no-git <APP_NAME> https://raw.githubusercontent.com/j
 
 When the installation completes, you will be presented with a list of generated users and passwords similar to the screencap below.  Make sure you save them!
 
-![cartridge_creation](https://raw.githubusercontent.com/jboss-mobile/jboss-unified-push-openshift-cartridge/master/cartridge-creation.png)
+![cartridge_creation](./cartridge-creation.png)
 
 The `Red Hat JBoss Unified Push Server` cartridge defaults to using MySQL.
 
