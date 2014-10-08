@@ -11,7 +11,7 @@ echo "$version" > "$OPENSHIFT_JBOSS_UNIFIED_PUSH_DIR/env/OPENSHIFT_JBOSS_UNIFIED
 
 ln -s ${OPENSHIFT_JBOSS_UNIFIED_PUSH_DIR}/standalone/log ${OPENSHIFT_JBOSS_UNIFIED_PUSH_DIR}/logs
 
-# Install the UnifiedPush Server WARs (auth and core)
+# Install the Unified Push Server WARs (auth and core)
 cp ${OPENSHIFT_JBOSS_UNIFIED_PUSH_DIR}/versions/${version}/standalone/deployments/ROOT.war $OPENSHIFT_JBOSS_UNIFIED_PUSH_DIR/standalone/deployments
 cp ${OPENSHIFT_JBOSS_UNIFIED_PUSH_DIR}/versions/${version}/standalone/deployments/unified-push-auth-server.war $OPENSHIFT_JBOSS_UNIFIED_PUSH_DIR/standalone/deployments
 cp ${OPENSHIFT_JBOSS_UNIFIED_PUSH_DIR}/versions/${version}/standalone/deployments/unified-push-server.war $OPENSHIFT_JBOSS_UNIFIED_PUSH_DIR/standalone/deployments
