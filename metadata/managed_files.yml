@@ -1,24 +1,24 @@
 ---
 snapshot_exclusions:
-- ~/jboss-unified-push/versions
-- ~/jboss-unified-push/modules
+- ~/unified-push/versions
+- ~/unified-push/modules
 locked_files:
 - bin/
 - bin/*
 - metadata/
 - metadata/*
 - env/
-- env/OPENSHIFT_JBOSS_UNIFIED_PUSH_DIR
-- env/OPENSHIFT_JBOSS_UNIFIED_PUSH_LOG_DIR
-- env/OPENSHIFT_JBOSS_UNIFIED_PUSH_JDK*
-- env/OPENSHIFT_JBOSS_UNIFIED_PUSH_VERSION
+- env/OPENSHIFT_UNIFIED_PUSH_DIR
+- env/OPENSHIFT_UNIFIED_PUSH_LOG_DIR
+- env/OPENSHIFT_UNIFIED_PUSH_JDK*
+- env/OPENSHIFT_UNIFIED_PUSH_VERSION
 - env/M2_HOME
 - standalone/deployments/*
 - usr/modules/org/
 - usr/modules/org/jboss/
 - usr/modules/org/jboss/aerogear/
-- versions/1.0.1/modules/org/
-- versions/1.0.1/modules/org/jboss/
-- versions/1.0.1/modules/org/jboss/aerogear/
+- versions/1.0.2/modules/org/
+- versions/1.0.2/modules/org/jboss/
+- versions/1.0.2/modules/org/jboss/aerogear/
 processed_templates:
 - '**/*.erb'
