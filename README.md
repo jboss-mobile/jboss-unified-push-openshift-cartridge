@@ -50,12 +50,12 @@ ssh {APPLICATION_ID}@{APP_NAME}-{NAMESPACE}.rhcloud.com
 ### Manage JBoss EAP configuration
 
 The main configuration file for JBoss EAP is `standalone.xml`  
-This file is available in your cartridge repository at location `./jboss-unified-push/standalone/configuration/standalone.xml`.  
+This file is available in your cartridge repository at location `./unified-push/standalone/configuration/standalone.xml`.  
 This is useful for changing container configurations such as root logger level and so on.  
 
 ### Template Repository Layout
 ```
-./jboss-unified-push/usr/template/.openshift/    Location for OpenShift specific files
+./unified-push/usr/template/.openshift/    Location for OpenShift specific files
 action_hooks/                                    See the Action Hooks documentation [1]
 markers/                                         See the Markers section [2]
 ```
@@ -65,15 +65,15 @@ markers/                                         See the Markers section [2]
 
 ### Environment Variables
 
-The `jboss-unified-push` cartridge provides several environment variables to reference for ease
+The `unified-push` cartridge provides several environment variables to reference for ease
 of use:
 ```
-OPENSHIFT_JBOSS_UNIFIED_PUSH_IP                         The IP address used to bind JBossEAP
-OPENSHIFT_JBOSS_UNIFIED_PUSH_HTTP_PORT                  The JBossEAP listening port
-OPENSHIFT_JBOSS_UNIFIED_PUSH_CLUSTER_PORT               
-OPENSHIFT_JBOSS_UNIFIED_PUSH_MESSAGING_PORT             
-OPENSHIFT_JBOSS_UNIFIED_PUSH_MESSAGING_THROUGHPUT_PORT  
-OPENSHIFT_JBOSS_UNIFIED_PUSH_REMOTING_PORT              
+OPENSHIFT_UNIFIED_PUSH_IP                         The IP address used to bind JBossEAP
+OPENSHIFT_UNIFIED_PUSH_HTTP_PORT                  The JBossEAP listening port
+OPENSHIFT_UNIFIED_PUSH_CLUSTER_PORT               
+OPENSHIFT_UNIFIED_PUSH_MESSAGING_PORT             
+OPENSHIFT_UNIFIED_PUSH_MESSAGING_THROUGHPUT_PORT  
+OPENSHIFT_UNIFIED_PUSH_REMOTING_PORT              
 JAVA_OPTS_EXT                                         Appended to JAVA_OPTS prior to invoking the Java VM
 ```
 For more information about environment variables, consult the
@@ -81,19 +81,19 @@ For more information about environment variables, consult the
 
 ### Markers
 
-You can add marker files to `./jboss-unified-push/usr/template/.openshift/markers/` to enable debugging application code and enable running JBoss EAP with Java7 if present.
+You can add marker files to `./unified-push/usr/template/.openshift/markers/` to enable debugging application code and enable running JBoss EAP with Java7 if present.
 
 #### Debugging application code
 `enable_jpda` Will enable the JPDA socket based transport on the java virtual machine running the JBoss EAP 6. This enables you to remotely debug code running inside the JBoss EAP 6.
 
 ```
-cd ./jboss-unified-push/usr/template/.openshift/markers/
+cd ./unified-push/usr/template/.openshift/markers/
 touch enable_jpda
 ```
 #### Running JBoss EAP with Java7
 `java7` Will run JBossEAP with Java7 if present. If no marker is present then the baseline Java version will be used (currently Java6)
 
 ```
-cd ./jboss-unified-push/usr/template/.openshift/markers/
+cd ./unified-push/usr/template/.openshift/markers/
 touch java7
 ```

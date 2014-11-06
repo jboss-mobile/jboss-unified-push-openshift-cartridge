@@ -1,12 +1,12 @@
-Name: jboss-unified-push
-Cartridge-Short-Name: JBOSS_UNIFIED_PUSH
+Name: unified-push
+Cartridge-Short-Name: UNIFIED_PUSH
 Display-Name: JBoss Unified Push Server 1.0.0.Beta1
 Description: "Provides the JBoss Unified Push Server, a server that allows sending push notifications to different mobile platforms. Runs on JBoss EAP Server 6."
 Version: 1.0.1
 License: "ASL 2.0"
 License-Url: http://www.apache.org/licenses/LICENSE-2.0.txt
 Vendor: Red Hat
-Cartridge-Version: 1.0.0
+Cartridge-Version: 1.0.1
 Cartridge-Vendor: jboss
 Source-Url: https://github.com/jboss-mobile/jboss-unified-push-openshift-cartridge/archive/openshift_production.zip
 Categories:
@@ -21,7 +21,7 @@ Website:
 Help-Topics:
   "Developer Center": https://www.openshift.com/developers
 Cart-Data:
-  - Key: OPENSHIFT_JBOSS_UNIFIED_PUSH_LOG_DIR
+  - Key: OPENSHIFT_UNIFIED_PUSH_LOG_DIR
     Type: environment
     Description: "Directory to store application log files."
   - Key: OPENSHIFT_TMP_DIR
@@ -30,10 +30,10 @@ Cart-Data:
   - Key: OPENSHIFT_REPO_DIR
     Type: environment
     Description: "Application root directory where application files reside. This directory is reset every time you do a git-push"
-  - Key: OPENSHIFT_JBOSS_UNIFIED_PUSH_HTTP_PORT
+  - Key: OPENSHIFT_UNIFIED_PUSH_HTTP_PORT
     Type: environment
     Description: "Internal port to which the web-framework binds to."
-  - Key: OPENSHIFT_JBOSS_UNIFIED_PUSH_IP
+  - Key: OPENSHIFT_UNIFIED_PUSH_IP
     Type: environment
     Description: "Internal IP to which the web-framework binds to."
   - Key: OPENSHIFT_APP_DNS
