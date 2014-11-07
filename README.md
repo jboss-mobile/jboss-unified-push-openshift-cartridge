@@ -81,7 +81,7 @@ For more information about environment variables, consult the
 
 ### Markers
 
-You can add marker files to `./unified-push/usr/template/.openshift/markers/` to enable debugging application code and enable running JBoss EAP with Java7 if present.
+You can add marker files to `./unified-push/usr/template/.openshift/markers/` to enable debugging application code.
 
 #### Debugging application code
 `enable_jpda` Will enable the JPDA socket based transport on the java virtual machine running the JBoss EAP 6. This enables you to remotely debug code running inside the JBoss EAP 6.
@@ -89,11 +89,4 @@ You can add marker files to `./unified-push/usr/template/.openshift/markers/` to
 ```
 cd ./unified-push/usr/template/.openshift/markers/
 touch enable_jpda
-```
-#### Running JBoss EAP with Java7
-`java7` Will run JBossEAP with Java7 if present. If no marker is present then the baseline Java version will be used (currently Java6)
-
-```
-cd ./unified-push/usr/template/.openshift/markers/
-touch java7
 ```
