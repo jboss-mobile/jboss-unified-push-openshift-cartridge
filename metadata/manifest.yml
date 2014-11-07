@@ -1,6 +1,6 @@
 Name: unified-push
 Cartridge-Short-Name: UNIFIED_PUSH
-Display-Name: JBoss Unified Push Server 1.0.2.Beta1
+Display-Name: JBoss Unified Push Server 1.0.0.Beta1
 Description: "Provides the JBoss Unified Push Server, a server that allows sending push notifications to different mobile platforms. Runs on JBoss EAP Server 6."
 Version: 1
 License: "ASL 2.0"
