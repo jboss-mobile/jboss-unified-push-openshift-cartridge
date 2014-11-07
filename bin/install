@@ -2,12 +2,7 @@
 
 source $OPENSHIFT_UNIFIED_PUSH_DIR/bin/util
 
-case "$1" in
-  -v|--version)
-    version="$2"
-esac
-
-echo "$version" > "$OPENSHIFT_UNIFIED_PUSH_DIR/env/OPENSHIFT_UNIFIED_PUSH_VERSION"
+version="$OPENSHIFT_UNIFIED_PUSH_VERSION"
 
 ln -s ${OPENSHIFT_UNIFIED_PUSH_DIR}/standalone/log ${OPENSHIFT_UNIFIED_PUSH_DIR}/logs
 
