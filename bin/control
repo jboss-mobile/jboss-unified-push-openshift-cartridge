@@ -2,13 +2,13 @@
 
 source $OPENSHIFT_CARTRIDGE_SDK_BASH
 
-JBOSSAS_BIN_DIR=${OPENSHIFT_JBOSS_UNIFIED_PUSH_DIR}/bin
+JBOSSAS_BIN_DIR=${OPENSHIFT_UNIFIED_PUSH_DIR}/bin
 JBOSSAS_PID_FILE=${OPENSHIFT_HOMEDIR}/app-root/runtime/jboss_unified_push.pid
-JBOSSAS_STANDALONE_DIR=${OPENSHIFT_JBOSS_UNIFIED_PUSH_DIR}/standalone
+JBOSSAS_STANDALONE_DIR=${OPENSHIFT_UNIFIED_PUSH_DIR}/standalone
 
 source $JBOSSAS_BIN_DIR/util
 
-cartridge_type="jboss-unified-push"
+cartridge_type="unified-push"
 
 # Check if the jbossas process is running
 function isrunning() {
@@ -64,8 +64,8 @@ function ishttpup() {
     let count=0
     while [ ${count} -lt 48 ]
     do
-        if echo 2> /dev/null > "/dev/tcp/${OPENSHIFT_JBOSS_UNIFIED_PUSH_IP}/${OPENSHIFT_JBOSS_UNIFIED_PUSH_HTTP_PORT}"; then
-            echo "Found ${OPENSHIFT_JBOSS_UNIFIED_PUSH_IP}:${OPENSHIFT_JBOSS_UNIFIED_PUSH_HTTP_PORT} listening port"
+        if echo 2> /dev/null > "/dev/tcp/${OPENSHIFT_UNIFIED_PUSH_IP}/${OPENSHIFT_UNIFIED_PUSH_HTTP_PORT}"; then
+            echo "Found ${OPENSHIFT_UNIFIED_PUSH_IP}:${OPENSHIFT_UNIFIED_PUSH_HTTP_PORT} listening port"
             return 0
         fi
         let count=${count}+1
@@ -137,9 +137,9 @@ function reload() {
 
 # Clean up any log files
 function tidy() {
-  client_message "Emptying log dir: $OPENSHIFT_JBOSS_UNIFIED_PUSH_LOG_DIR"
+  client_message "Emptying log dir: $OPENSHIFT_UNIFIED_PUSH_LOG_DIR"
   shopt -s dotglob
-  rm -rf $OPENSHIFT_JBOSS_UNIFIED_PUSH_LOG_DIR/*
+  rm -rf $OPENSHIFT_UNIFIED_PUSH_LOG_DIR/*
 }
 
 function threaddump() {
@@ -162,8 +162,7 @@ function threaddump() {
 
 function pre_snapshot {
   start
-  echo "$OPENSHIFT_JBOSS_UNIFIED_PUSH_TOKEN_KEY" > $OPENSHIFT_DATA_DIR/jboss_unified_push_token_key
-  cp $OPENSHIFT_JBOSS_UNIFIED_PUSH_DIR/standalone/configuration/standalone.xml $OPENSHIFT_DATA_DIR/standalone.snapshot.xml
+  cp $OPENSHIFT_UNIFIED_PUSH_DIR/standalone/configuration/standalone.xml $OPENSHIFT_DATA_DIR/standalone.snapshot.xml
   stop
 }
 
@@ -176,21 +175,15 @@ function pre_restore {
 }
 
 function post_restore {
-  if [ -s $OPENSHIFT_DATA_DIR/jboss_unified_push_token_key ]; then
-    TOKEN_KEY=$(< $OPENSHIFT_DATA_DIR/jboss_unified_push_token_key)
-    echo $TOKEN_KEY > $OPENSHIFT_JBOSS_UNIFIED_PUSH_DIR/env/OPENSHIFT_JBOSS_UNIFIED_PUSH_TOKEN_KEY
-    sed -i "s/<server socket-binding=\"simplepush\"\(.*\) password=\"[^\"]\+\"/<server socket-binding=\"simplepush\"\1 password=\"$TOKEN_KEY\"/" $JBOSSAS_STANDALONE_DIR/configuration/standalone.xml > /dev/null 2>&1
-  fi
 
   if [ -s $OPENSHIFT_DATA_DIR/standalone.snapshot.xml ]; then
-    cp $OPENSHIFT_DATA_DIR/standalone.snapshot.xml $OPENSHIFT_JBOSS_UNIFIED_PUSH_DIR/standalone/configuration/standalone_xml_history/snapshot/standalone.snapshot.xml
+    cp $OPENSHIFT_DATA_DIR/standalone.snapshot.xml $OPENSHIFT_UNIFIED_PUSH_DIR/standalone/configuration/standalone_xml_history/snapshot/standalone.snapshot.xml
   fi
 
   cleanup_dump
 }
 
 function cleanup_dump {
-  rm -f $OPENSHIFT_DATA_DIR/jboss_unified_push_token_key
   rm -f $OPENSHIFT_DATA_DIR/standalone.snapshot.xml
 }
 

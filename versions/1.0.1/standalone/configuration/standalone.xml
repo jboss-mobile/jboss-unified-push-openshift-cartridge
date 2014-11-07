@@ -244,7 +244,7 @@
         </subsystem>
         <subsystem xmlns="urn:jboss:domain:jaxr:1.0">
             <connection-factory jndi-name="java:jboss/jaxr/ConnectionFactory"/>
-            <juddi-server publish-url="http://${env.OPENSHIFT_JBOSS_UNIFIED_PUSH_IP}:8080/juddi/publish" query-url="http://${env.OPENSHIFT_JBOSS_UNIFIED_PUSH_IP}:8080/juddi/query"/>
+            <juddi-server publish-url="http://${env.OPENSHIFT_UNIFIED_PUSH_IP}:8080/juddi/publish" query-url="http://${env.OPENSHIFT_UNIFIED_PUSH_IP}:8080/juddi/query"/>
         </subsystem>
         <subsystem xmlns="urn:jboss:domain:jaxrs:1.0"/>
         <subsystem xmlns="urn:jboss:domain:jca:1.1">
@@ -270,14 +270,14 @@
             <stack name="tcp">
                 <transport type="TCP" socket-binding="jgroups-tcp"> 
                 	<property name="external_addr">${env.OPENSHIFT_GEAR_DNS}</property>
-                    <property name="external_port">${env.OPENSHIFT_JBOSS_UNIFIED_PUSH_CLUSTER_PROXY_PORT}</property>
+                    <property name="external_port">${env.OPENSHIFT_UNIFIED_PUSH_CLUSTER_PROXY_PORT}</property>
                     <property name="bind_port">7600</property>
-                    <property name="bind_addr">${env.OPENSHIFT_JBOSS_UNIFIED_PUSH_IP}</property>
+                    <property name="bind_addr">${env.OPENSHIFT_UNIFIED_PUSH_IP}</property>
                     <property name="defer_client_bind_addr">true</property>
                 </transport>
                 <protocol type="TCPPING">
                 	<property name="timeout">30000</property>
-                	<property name="initial_hosts">${env.OPENSHIFT_JBOSS_UNIFIED_PUSH_CLUSTER}</property>
+                	<property name="initial_hosts">${env.OPENSHIFT_UNIFIED_PUSH_CLUSTER}</property>
                 	<property name="port_range">0</property>
                 	<property name="num_initial_members">1</property>
                 </protocol>
@@ -514,15 +514,15 @@
 
     <interfaces>
         <interface name="management">
-            <loopback-address value="${env.OPENSHIFT_JBOSS_UNIFIED_PUSH_IP}"/>
+            <loopback-address value="${env.OPENSHIFT_UNIFIED_PUSH_IP}"/>
         </interface>
         <interface name="public">
-            <loopback-address value="${env.OPENSHIFT_JBOSS_UNIFIED_PUSH_IP}"/>
+            <loopback-address value="${env.OPENSHIFT_UNIFIED_PUSH_IP}"/>
         </interface>
         <interface name="unsecure">
             <!-- Used for IIOP sockets in the standarad configuration.
                  To secure JacORB you need to setup SSL -->
-            <loopback-address value="${env.OPENSHIFT_JBOSS_UNIFIED_PUSH_IP}"/>
+            <loopback-address value="${env.OPENSHIFT_UNIFIED_PUSH_IP}"/>
         </interface>
         <interface name="external">
             <loopback-address value="${env.OPENSHIFT_GEAR_DNS}"/>
