@@ -1,12 +1,12 @@
 Name: unified-push
 Cartridge-Short-Name: UNIFIED_PUSH
 Display-Name: JBoss Unified Push Server 1.0.0.Beta1
-Description: "Provides the JBoss Unified Push Server, a server that allows sending push notifications to different mobile platforms. Runs on JBoss EAP Server 6."
+Description: "The Red Hat JBoss Unified Push server allows developers to send native push messages to Apple's Push Notification Service (APNS) and Google's Cloud Messaging (GCM). It features a built-in administration console that makes it easy for developers to create and manage push related aspects of their applications for any mobile development environment. Includes client SDKs (iOS, Android, & Cordova), and a REST based sender service with an available Java sender library"
 Version: 1
 License: "ASL 2.0"
 License-Url: http://www.apache.org/licenses/LICENSE-2.0.txt
 Vendor: Red Hat
-Cartridge-Version: 1.0.2.1
+Cartridge-Version: 1.0.2.2
 Cartridge-Vendor: jboss
 Source-Url: https://github.com/jboss-mobile/jboss-unified-push-openshift-cartridge/archive/master.zip
 Categories:
@@ -15,9 +15,10 @@ Categories:
   - java
   - jboss
   - jee_full_profile
+  - xpaas
 Requires:
   - mysql-5.5
-Website: 
+Website: http://www.jboss.org/unifiedpush
 Help-Topics:
   "Developer Center": https://www.openshift.com/developers
 Cart-Data:
