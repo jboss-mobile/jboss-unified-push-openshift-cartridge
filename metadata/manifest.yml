@@ -8,7 +8,7 @@ License-Url: http://www.apache.org/licenses/LICENSE-2.0.txt
 Vendor: Red Hat
 Cartridge-Version: 1.0.0
 Cartridge-Vendor: jboss
-Source-Url: https://github.com/jboss-mobile/jboss-unified-push-openshift-cartridge/archive/openshift_production.zip
+Source-Url: https://github.com/jboss-mobile/jboss-unified-push-openshift-cartridge/archive/jboss-unified-push_20141024.zip
 Categories:
   - service
   - web_framework
