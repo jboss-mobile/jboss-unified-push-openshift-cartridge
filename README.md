@@ -11,17 +11,17 @@ You first need to create an OpenShift account before being able to create applic
 You have different options to create your application.
 
 #### Approach 1: use the OpenShift create application page
-Go to the [OpenShift create application page](https://openshift.redhat.com/app/console/application_types) and enter the cartridge URI of https://raw.githubusercontent.com/jboss-mobile/jboss-unified-push-openshift-cartridge/jboss-unified-push_20141111/metadata/manifest.yml in the entry field (at the bottom left of the form), then configure the application in the following pages (you need to specify at least the `Public URL`. If you have a subscription for Openshift that gives you access to other gear sizes, you can specify them in the `Gears` field). 
+Go to the [OpenShift create application page](https://openshift.redhat.com/app/console/application_types) and enter the cartridge URI of https://raw.githubusercontent.com/jboss-mobile/jboss-unified-push-openshift-cartridge/openshift_production/metadata/manifest.yml in the entry field (at the bottom left of the form), then configure the application in the following pages (you need to specify at least the `Public URL`. If you have a subscription for Openshift that gives you access to other gear sizes, you can specify them in the `Gears` field). 
 
 #### Approach 2: use the rhc command line
 If you want to use the rhc command line type:
 ```shell
-rhc app create --no-git <APP_NAME> https://raw.githubusercontent.com/jboss-mobile/jboss-unified-push-openshift-cartridge/jboss-unified-push_20141111/metadata/manifest.yml
+rhc app create --no-git <APP_NAME> https://raw.githubusercontent.com/jboss-mobile/jboss-unified-push-openshift-cartridge/openshift_production/metadata/manifest.yml
 ```
 
 If you have a subscription for Openshift that gives you access to other gear sizes, you can specify them running i.e. :
 ```shell
-rhc app create -g medium --no-git <APP_NAME> https://raw.githubusercontent.com/jboss-mobile/jboss-unified-push-openshift-cartridge/jboss-unified-push_20141111/metadata/manifest.yml
+rhc app create -g medium --no-git <APP_NAME> https://raw.githubusercontent.com/jboss-mobile/jboss-unified-push-openshift-cartridge/openshift_production/metadata/manifest.yml
 ```
 
 When the installation completes, you will be presented with a list of generated users and passwords similar to the screencap below.  Make sure you save them!
@@ -50,12 +50,12 @@ ssh {APPLICATION_ID}@{APP_NAME}-{NAMESPACE}.rhcloud.com
 ### Manage JBoss EAP configuration
 
 The main configuration file for JBoss EAP is `standalone.xml`  
-This file is available in your cartridge repository at location `./jboss-unified-push/standalone/configuration/standalone.xml`.  
+This file is available in your cartridge repository at location `./unified-push/standalone/configuration/standalone.xml`.  
 This is useful for changing container configurations such as root logger level and so on.  
 
 ### Template Repository Layout
 ```
-./jboss-unified-push/usr/template/.openshift/    Location for OpenShift specific files
+./unified-push/usr/template/.openshift/    Location for OpenShift specific files
 action_hooks/                                    See the Action Hooks documentation [1]
 markers/                                         See the Markers section [2]
 ```
@@ -65,15 +65,15 @@ markers/                                         See the Markers section [2]
 
 ### Environment Variables
 
-The `jboss-unified-push` cartridge provides several environment variables to reference for ease
+The `unified-push` cartridge provides several environment variables to reference for ease
 of use:
 ```
-OPENSHIFT_JBOSS_UNIFIED_PUSH_IP                         The IP address used to bind JBossEAP
-OPENSHIFT_JBOSS_UNIFIED_PUSH_HTTP_PORT                  The JBossEAP listening port
-OPENSHIFT_JBOSS_UNIFIED_PUSH_CLUSTER_PORT               
-OPENSHIFT_JBOSS_UNIFIED_PUSH_MESSAGING_PORT             
-OPENSHIFT_JBOSS_UNIFIED_PUSH_MESSAGING_THROUGHPUT_PORT  
-OPENSHIFT_JBOSS_UNIFIED_PUSH_REMOTING_PORT              
+OPENSHIFT_UNIFIED_PUSH_IP                         The IP address used to bind JBossEAP
+OPENSHIFT_UNIFIED_PUSH_HTTP_PORT                  The JBossEAP listening port
+OPENSHIFT_UNIFIED_PUSH_CLUSTER_PORT               
+OPENSHIFT_UNIFIED_PUSH_MESSAGING_PORT             
+OPENSHIFT_UNIFIED_PUSH_MESSAGING_THROUGHPUT_PORT  
+OPENSHIFT_UNIFIED_PUSH_REMOTING_PORT              
 JAVA_OPTS_EXT                                         Appended to JAVA_OPTS prior to invoking the Java VM
 ```
 For more information about environment variables, consult the
@@ -81,19 +81,12 @@ For more information about environment variables, consult the
 
 ### Markers
 
-You can add marker files to `./jboss-unified-push/usr/template/.openshift/markers/` to enable debugging application code and enable running JBoss EAP with Java7 if present.
+You can add marker files to `./unified-push/usr/template/.openshift/markers/` to enable debugging application code.
 
 #### Debugging application code
 `enable_jpda` Will enable the JPDA socket based transport on the java virtual machine running the JBoss EAP 6. This enables you to remotely debug code running inside the JBoss EAP 6.
 
 ```
-cd ./jboss-unified-push/usr/template/.openshift/markers/
+cd ./unified-push/usr/template/.openshift/markers/
 touch enable_jpda
-```
-#### Running JBoss EAP with Java7
-`java7` Will run JBossEAP with Java7 if present. If no marker is present then the baseline Java version will be used (currently Java6)
-
-```
-cd ./jboss-unified-push/usr/template/.openshift/markers/
-touch java7
 ```
