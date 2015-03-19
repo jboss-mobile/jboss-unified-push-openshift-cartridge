@@ -8,7 +8,7 @@ esac
 case $version in
 1)
   # Add minor and bugfix version
-  version=1.0.2
+  version=1.0.3
   ;;
 *)
   echo "Unsupported unified-push version $version" >&2
