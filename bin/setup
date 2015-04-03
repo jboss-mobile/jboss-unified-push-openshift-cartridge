@@ -6,6 +6,10 @@ case "$1" in
 esac
 
 case $version in
+1)
+  # Add minor and bugfix version
+  version=1.0.2
+  ;;
 2)
   # Add minor and bugfix version
   version=1.0.3
