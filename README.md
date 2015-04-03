@@ -34,7 +34,7 @@ The `Red Hat JBoss Unified Push Server` cartridge defaults to using MySQL.
 
 #### Administration Console
 
-Once the server is running access it via `https://{APP_NAME}-{NAMESPACE}.rhcloud.com/ag-push`. For more information on using the console, see the [JBoss Unified Push documentation](http://docs.jboss.org/unifiedpush/unifiedpush.pdf).
+Once the server is running access it via `https://{APP_NAME}-{NAMESPACE}.rhcloud.com/ag-push`. For more information on using the console, see the [JBoss Unified Push documentation](http://docs.jboss.org/unifiedpush/).
 
 #### Login
 

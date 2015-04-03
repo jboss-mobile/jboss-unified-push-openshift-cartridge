@@ -10,6 +10,10 @@ case $version in
   # Add minor and bugfix version
   version=1.0.2
   ;;
+2)
+  # Add minor and bugfix version
+  version=1.0.3
+  ;;
 *)
   echo "Unsupported unified-push version $version" >&2
   exit 1
