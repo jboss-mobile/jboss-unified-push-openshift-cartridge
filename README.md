@@ -1,5 +1,7 @@
 # Red Hat JBoss Unified Push Server Cartridge for OpenShift
 
+**DEPRECATED:** This is based on OpenShift 2, and is no longer supported. Users are asked to check out the AeroGear community template for Openshift 3: https://github.com/aerogear/aerogear-unifiedpush-server/tree/master/openshift  
+
 This cartridge provides the `Red Hat JBoss Unified Push Server` for easy deployment to OpenShift, running on top of JBoss EAP. 
 
 The `Red Hat JBoss Unified Push Server` is a server that allows sending push notifications to different (mobile) platforms. The initial version of the server supports [Apple’s APNs](http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW9) and [Google Cloud Messaging](http://developer.android.com/google/gcm/index.html).
